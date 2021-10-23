@@ -2,6 +2,8 @@
 
 This is the reference source code package of BLAKE2, which includes
 
+* `Sources/BLAKE2`: Swift package wrapping BLAKE2b (other variants are unimplemented).
+
 * `ref/`: C implementations of BLAKE2b, BLAKE2bp, BLAKE2s, BLAKE2sp,
   aimed at portability and simplicity.
 
