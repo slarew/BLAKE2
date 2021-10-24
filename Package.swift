@@ -12,7 +12,7 @@ let package = Package(
       targets: ["BLAKE2"]),
   ],
   dependencies: [
-    .package(url: "https://github.com/apple/swift-crypto", from: "1.1.6"),
+    .package(url: "https://github.com/apple/swift-crypto", from: "2.0.0"),
   ],
   targets: [
     .target(name: "CBLAKE2"),
