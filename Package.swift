@@ -1,10 +1,11 @@
 // swift-tools-version:5.3
+// SPDX-License-Identifier: CC0-1.0 OR Apache-2.0 OR OpenSSL
 // Copyright 2021 Stephen Larew
 
 import PackageDescription
 
 let package = Package(
-  name: "BLAKE2",
+  name: "swift-crypto-blake2",
   platforms: [.macOS(.v10_15),.iOS(.v13),.tvOS(.v13),.watchOS(.v6)],
   products: [
     .library(
