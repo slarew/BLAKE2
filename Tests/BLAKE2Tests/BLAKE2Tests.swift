@@ -8,11 +8,11 @@ final class BLAKE2Tests: XCTestCase {
   func testBasics() {
     let helloDigest = Data(base64Encoded: "5M+jmj03vjHFlgnoB5cHmcqmihm/qhUTXxZQheAdQaZboeGxRq62vQCStJ6sIUwQPM+jo2WVS7vlL3Sis2IMlA==")!
     let data = "hello".data(using: .utf8)!
-    var h = BLAKE2b()
+    var h = BLAKE2b<BLAKE2b512Digest>()
     h.update(data: data)
     let d1 = h.finalize()
     XCTAssert(d1.elementsEqual(helloDigest))
-    let d2 = BLAKE2b.hash(data: data)
+    let d2 = BLAKE2b<BLAKE2b512Digest>.hash(data: data)
     XCTAssertEqual(d1, d2)
   }
 
@@ -23,7 +23,7 @@ final class BLAKE2Tests: XCTestCase {
     let data = Data(base64Encoded: "AAECAwQFBgcICQoLDA0ODw==")!
     let key = Data(base64Encoded: "AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8gISIjJCUmJygpKissLS4vMDEyMzQ1Njc4OTo7PD0+Pw==")!
     let expDigest = Data(base64Encoded: "oMZb3d6K3vVygrBLEee8iqsQW5kjG3UMAh9Kc1yxvPq4dVO7o6uww+ZKC2lVKFGFoL01+4z95Vcym+ux9inukw==")!
-    var h = BLAKE2b(key: BLAKE2b.Key(data: key))
+    var h = BLAKE2b<BLAKE2b512Digest>(key: BLAKE2b<BLAKE2b512Digest>.Key(data: key))
     h.update(data: data)
     let actDigest = h.finalize()
     XCTAssert(actDigest.elementsEqual(expDigest))
